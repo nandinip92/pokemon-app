@@ -1,0 +1,12 @@
+
+.main{
+  display: flex;
+  flex-direction: column;
+}
+input{
+  font-family: 'Gotham SSm A', 'Gotham SSm B', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 24px;
+  width: 25%;
+}
