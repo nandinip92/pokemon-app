@@ -76,6 +76,18 @@ function App() {
         {loading && <p>Loading...</p>}
         {error && <p>Couldn't find your pokemon!</p>}
       </div>
+      <footer className="pokemon-footer">
+        {/* <img
+          src="../polemon-bunch.png"
+          className="pokemon-footer-logo"
+          alt="pokemon-bunch"
+        /> */}
+        <img
+          src="../pngegg.png"
+          className="pokemon-footer-logo"
+          alt="pokemon-bunch"
+        />
+      </footer>
     </main>
   );
 }

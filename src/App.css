@@ -106,11 +106,17 @@ button:focus {
   font-family: "Encode Sans Condensed", sans-serif;
   font-weight: 800;
   font-style: normal;
-  color:var(--navy);
+  color: var(--navy);
 }
 .pokemon-results img {
   border: 0.125rem solid orange;
   border-radius: 50%;
   height: 120px;
   background-color: rgba(0, 0, 0, 0.2);
+}
+
+.pokemon-footer-logo {
+  width: 30%;
+  height: 30%;
+  float: right;
 }
