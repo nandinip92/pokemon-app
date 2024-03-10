@@ -40,12 +40,12 @@ function App() {
       <div className="pokemon-header">
         <img
           className="pokemon-header-image"
-          src="./src/assets/pokemon.png"
+          src="./docs/assets/pokemon.png"
           alt="pokemonbunch"
         />
         <img
           className="pokemon-header-logo"
-          src="./src/assets/pokemonLogo.png"
+          src="./docs/assets/pokemonLogo.png"
           alt="pokemonlogo"
         />
       </div>
@@ -83,7 +83,7 @@ function App() {
           alt="pokemon-bunch"
         /> */}
         <img
-          src="./src/assets/pngegg.png"
+          src="./docs/assets/pngegg.png"
           className="pokemon-footer-logo"
           alt="pokemon-ball"
         />
