@@ -70,7 +70,7 @@ function App() {
                 .map((typeData) => typeData.type.name)
                 .join(" and ")}
             </h2>
-            <p>Base experience: {pokemon.base_experience}</p>
+            <h3>Base experience: {pokemon.base_experience}</h3>
           </div>
         )}
         {loading && <p>Loading...</p>}
