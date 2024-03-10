@@ -1,66 +1,83 @@
-import { useState } from 'react'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
 
 interface Pokemon {
-  name: string
+  name: string;
   sprites: {
-    front_default: string
-  }
+    front_default: string;
+  };
   types: {
     type: {
-      name: string
-    }
-  }[]
-  base_experience: number
+      name: string;
+    };
+  }[];
+  base_experience: number;
 }
 
 function App() {
-  const [pokemon, setPokemon] = useState<Pokemon>()
-  const [loading, setLoading] = useState<boolean>(false)
-  const [error, setError] = useState<boolean>(false)
+  const [pokemon, setPokemon] = useState<Pokemon>();
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
-    event.preventDefault()
-    setPokemon(undefined)
-    setError(false)
-    const formData = new FormData(event.target as HTMLFormElement)
-    const pokemonName = formData.get("pokemonName")
+    event.preventDefault();
+    setPokemon(undefined);
+    setError(false);
+    const formData = new FormData(event.target as HTMLFormElement);
+    const pokemonName = formData.get("pokemonName");
     if (pokemonName) {
-      setLoading(true)
+      setLoading(true);
       fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
         .then((response) => response.json())
         .then((data) => setPokemon(data))
         .catch(() => setError(true))
-        .finally(() => setLoading(false))
+        .finally(() => setLoading(false));
     }
-  }
+  };
 
   return (
     <main>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Enter pokemon name:
-          <br />
-          <input type="text" name="pokemonName" />
-        </label>
-        <button type="submit">Get info!</button>
-      </form>
-      {pokemon &&
-        <div>
-          <img src={pokemon.sprites.front_default} alt={pokemon.name} />
-          <h1>{pokemon.name}</h1>
-          <h2>Type(s): {pokemon.types.map((typeData) => typeData.type.name).join(" and ")}</h2>
-          <p>Base experience: {pokemon.base_experience}</p>
-        </div>
-      }
-      {loading &&
-        <p>Loading...</p>
-      }
-      {error &&
-        <p>Couldn't find your pokemon!</p>
-      }
+      <div className="pokemon-header">
+        <img
+          className="pokemon-header-image"
+          src="../pokemon.png"
+          alt="pokemonbunch"
+        />
+        <img
+          className="pokemon-header-logo"
+          src="../pokemonLogo.png"
+          alt="pokemonlogo"
+        />
+      </div>
+      <div className="form-container">
+        <form onSubmit={handleSubmit}>
+          <label>
+            Enter pokemon name:
+            <br />
+            <input type="text" name="pokemonName" />
+          </label>
+          <button type="submit">Get info!</button>
+        </form>
+      </div>
+      <div className="pokemon-results">
+        {pokemon && (
+          <div>
+            <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+            <h1>{pokemon.name}</h1>
+            <h2>
+              Type(s):{" "}
+              {pokemon.types
+                .map((typeData) => typeData.type.name)
+                .join(" and ")}
+            </h2>
+            <p>Base experience: {pokemon.base_experience}</p>
+          </div>
+        )}
+        {loading && <p>Loading...</p>}
+        {error && <p>Couldn't find your pokemon!</p>}
+      </div>
     </main>
-  )
+  );
 }
 
-export default App
+export default App;
