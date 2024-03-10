@@ -7,6 +7,7 @@
   --red: #f95738;
   --pink-brown: #87314e;
   --bright-pink-brown: #df405a;
+  --light-blue:#EEEDEB;
 }
 html,
 body,
@@ -21,7 +22,7 @@ main {
   align-items: center;
   gap: 3rem;
   min-height: 100%;
-  background-color: var(--light);
+  background-color: var(--light-blue);
 }
 .pokemon-header {
   display: flex;
